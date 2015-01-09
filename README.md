@@ -151,4 +151,10 @@ jquery.cabinet is released under the MIT license.
 Change Log
 ==========
 
+- Ver.1.1.0 (2015/01/09)
+ - Default `position` of the option `mode`.
+ - Bug fixed that does not add `classDrawerOpen` by method `open`.
+ - Append option of method `appendDrawers`.
+ - Append method `removeDrawers`.
+ - Method call before initializing was set to be disabled.
 - Ver.1.0.0 (2015/01/04)
