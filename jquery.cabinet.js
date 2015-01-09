@@ -239,19 +239,28 @@
     }
     ,isOpen: function(){
       var $this = $(this);
-      var options = $this.data(namespace).options;
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      var options = data.options;
       return $this.hasClass(options.classOpen);
     }
     ,toggle: function(){
       var $this = $(this);
-      var options = $this.data(namespace).options;
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      var options = data.options;
       var method = ($this.hasClass(options.classOpen)) ? 'close' : 'open';
       methods[method].apply(this);
       return method;
     }
     ,open: function(options){
       var $this = $(this);
-      options = $.extend($this.data(namespace).options, options);
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      options = $.extend(data.options, options);
       //
       if (typeof options.onBeforeOpen == 'function') {
         options.onBeforeOpen.call(this);
@@ -294,7 +303,10 @@
     },
     close: function(options){
       var $this = $(this);
-      options = $.extend($this.data(namespace).options, options);
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      options = $.extend(data.options, options);
       //
       if (typeof options.onBeforeClose == 'function') {
         options.onBeforeClose.call(this);
@@ -346,12 +358,18 @@
     }
     ,reset: function(options){
       var $this = $(this);
-      $.extend($this.data(namespace).options, options);
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      return $.extend(data.options, options);
     }
     ,appendDrawers: function(drawers){
       if (!$.isArray(drawers)) return ;
       var _this = this;
       var $this = $(this);
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
       $.each(drawers, function(index, drawer){
         var $knob = $('<div>').addClass('cabinet-knob').append(drawer.knob);
         var $box = $('<div>').addClass('cabinet-box').append(drawer.box);
@@ -364,10 +382,18 @@
       });
     }
     ,removeDrawer: function(index){
-      $(this).find('.cabinet-drawer:eq('+index+')').remove();
+      var $this = $(this);
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      $this.find('.cabinet-drawer:eq('+index+')').remove();
     }
     ,getDrawer: function(index){
-      return $(this).find('.cabinet-box:eq('+index+')');
+      var $this = $(this);
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      return $this.find('.cabinet-box:eq('+index+')');
     }
   };
   $.fn.cabinet = function(method){
