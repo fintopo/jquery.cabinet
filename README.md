@@ -94,9 +94,27 @@ Methods
 
 ## appendDrawers
 
+This method appends drawers.
+
+If option `remove' is true, remove all existing drawers.
+If option `remove' is number, remove the drawer of number.
+
+If option `open' is true, open the cabinet.
+
+```
+$('.cabinet').cabinet('appendDrawers', {
+  'drawers': [{
+    'knob': 'knob title'
+    ,'box': 'box text'
+  }]
+  ,'remove': true
+  ,'open': true
+});
+```
+
 ## removeDrawers
 
-This method removes all drawers;
+This method removes all drawers.
 
 ```
 $('.cabinet').cabinet('removeDrawers');
@@ -104,7 +122,7 @@ $('.cabinet').cabinet('removeDrawers');
 
 ## removeDrawer
 
-This method removes the drawer of index number;
+This method removes the drawer of index number.
 
 ```
 $('.cabinet').cabinet('removeDrawer', 0);

@@ -391,6 +391,10 @@
         $this.append($drawer);
         add_knob_events.call(_this, $knob);
       });
+      //
+      if (options.open) {
+        methods.open.apply(_this);
+      }
     }
     ,removeDrawers: function(){
       var $this = $(this);
