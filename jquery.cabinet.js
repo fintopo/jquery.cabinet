@@ -8,6 +8,27 @@
   'use strict';
 
   var namespace = 'cabinet';
+
+  // 全ての引き出しを閉じる
+  var close_drawers = function($cabinet, options){
+    $cabinet.find('.cabinet-drawer')
+        .removeClass(options.classDrawerOpen)
+        .addClass(options.classDrawerClose);
+    $cabinet.find('.cabinet-box').hide();
+  };
+  // 引き出しの切り替え
+  var switch_drawer = function($cabinet, $knob, options){
+    var old_drawer = $cabinet.find('.cabinet-drawer.'+options.classDrawerOpen).index();
+    var new_drawer = $cabinet.find('.cabinet-knob').index($knob);
+    //
+    close_drawers($cabinet, options);
+    $cabinet.find('.cabinet-drawer:eq('+new_drawer+')')
+        .removeClass(options.classDrawerClose)
+        .addClass(options.classDrawerOpen);
+    $cabinet.find('.cabinet-box:eq('+new_drawer+')').show();
+    //
+    return $cabinet.hasClass(options.classOpen) && (new_drawer != old_drawer);
+  };
   //
   var add_knob_events = function($knob){
     var _this = this;
@@ -16,20 +37,8 @@
       var options = $this.data(namespace).options;
       var mx = e.pageX;
       var my = e.pageY;
-      // 引き出しの切り替え
-      var old_drawer = $this.find('.cabinet-drawer.'+options.classDrawerOpen).index();
-      var new_drawer = $this.find('.cabinet-knob').index(this);
-      var hold_drawer = $this.hasClass(options.classOpen) && (new_drawer != old_drawer);
       //
-      $this.find('.cabinet-drawer')
-          .removeClass(options.classDrawerOpen)
-          .addClass(options.classDrawerClose);
-      $this.find('.cabinet-box').hide();
-      //
-      $this.find('.cabinet-drawer:eq('+new_drawer+')')
-          .removeClass(options.classDrawerClose)
-          .addClass(options.classDrawerOpen);
-      $this.find('.cabinet-box:eq('+new_drawer+')').show();
+      var hold_drawer = switch_drawer($this, this, options);
       //
       if (typeof options.onMouseDown == 'function') {
         options.onMouseDown.call($this, mx, my);
@@ -297,6 +306,10 @@
           .addClass(options.classOpen)
           .removeClass(options.classExpand);
       //
+      if ($this.find('.cabinet-drawer.'+options.classDrawerOpen).length == 0) { // クリックでオープンした時は、既にクラスが付いているので変更しない。
+        switch_drawer($this, $this.find('.cabinet-knob:first'), options);
+      }
+      //
       if (typeof options.onOpen == 'function') {
         options.onOpen.call(this);
       }
@@ -351,6 +364,7 @@
           .removeClass(options.classOpen)
           .addClass(options.classClose)
           .removeClass(options.classExpand);
+      close_drawers($this, options);
       //
       if (typeof options.onClose == 'function') {
         options.onClose.call(this);

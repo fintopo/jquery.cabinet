@@ -43,7 +43,7 @@ $(function() {
   $('.cabinet-right').cabinet($.extend({
     position: 'right'
     ,width: 300
-//    ,mode: 'position'
+    ,mode: 'width'
   }, options));
   $('.cabinet-right').cabinet('appendDrawers', [{
     knob: '<p>appendDrawers</p>'
@@ -59,7 +59,7 @@ $(function() {
   $('.cabinet-bottom').cabinet($.extend({
     position: 'bottom'
     ,height: 100
-//    ,mode: 'position'
+    ,mode: 'width'
   }, options));
   $('.cabinet-bottom').cabinet('getDrawer', 0).html('<p>jquery.cabinet is released under the MIT license.</p>');
   $('.cabinet-bottom').cabinet('getDrawer', 1).html('<p>create by <a href="http://www.fintopo.jp/">fintopo</a></p>');
