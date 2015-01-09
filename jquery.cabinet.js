@@ -363,14 +363,25 @@
       //
       return $.extend(data.options, options);
     }
-    ,appendDrawers: function(drawers){
-      if (!$.isArray(drawers)) return ;
+    ,appendDrawers: function(options){
       var _this = this;
       var $this = $(this);
       var data = $this.data(namespace);
       if (!data) return;
+      if (!options) return;
+      options = $.extend({
+        drawers: ($.isArray(options)) ? options : []
+        ,open: false
+        ,remove: null
+      }, options);
       //
-      $.each(drawers, function(index, drawer){
+      if (options.remove === true) {
+        methods.removeDrawers.call(this);
+      } else if (toString.call(options.remove) == '[object Number]') {
+        methods.removeDrawer.call(this, options.remove);
+      }
+      //
+      $.each(options.drawers, function(index, drawer){
         var $knob = $('<div>').addClass('cabinet-knob').append(drawer.knob);
         var $box = $('<div>').addClass('cabinet-box').append(drawer.box);
         var $drawer = $('<div>')
