@@ -194,7 +194,7 @@
         ,classExpand: 'cabinet-expand'
         ,classDrawerOpen: 'drawer-open'
         ,classDrawerClose: 'drawer-close'
-        ,mode: 'width'
+        ,mode: 'position'
         ,onOpen: null
         ,onBeforeOpen: null
         ,onClose: null

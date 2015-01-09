@@ -24,7 +24,7 @@ This option refers to the direction of slide.
 
 `width` or `position`
 
-default: `width`
+default: `position`
 
 This option refers to the method of slide.
 
