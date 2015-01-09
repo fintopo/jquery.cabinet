@@ -381,6 +381,13 @@
         add_knob_events.call(_this, $knob);
       });
     }
+    ,removeDrawers: function(){
+      var $this = $(this);
+      var data = $this.data(namespace);
+      if (!data) return;
+      //
+      $this.find('.cabinet-drawer').remove();
+    }
     ,removeDrawer: function(index){
       var $this = $(this);
       var data = $this.data(namespace);

@@ -94,7 +94,21 @@ Methods
 
 ## appendDrawers
 
+## removeDrawers
+
+This method removes all drawers;
+
+```
+$('.cabinet').cabinet('removeDrawers');
+```
+
 ## removeDrawer
+
+This method removes the drawer of index number;
+
+```
+$('.cabinet').cabinet('removeDrawer', 0);
+```
 
 ## getDrawer
 
