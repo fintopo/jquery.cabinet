@@ -59,7 +59,7 @@
             }
             params.top = top - my + e.pageY;
             params.height = options.height;
-            if ((options.height + params.top) <= (options.closeHeight - options.height + options.minSize)) {
+            if ((options.height + params.top) <= options.minSize) {
               f_close = true;
               params.top = options.closeHeight - options.height;
             } else if (params.top > 0) {
@@ -75,7 +75,7 @@
             }
             params.bottom = bottom + my - e.pageY;
             params.height = options.height;
-            if ((options.height + params.bottom) <= (options.closeHeight - options.height + options.minSize)) {
+            if ((options.height + params.bottom) <= options.minSize) {
               f_close = true;
               params.bottom = options.closeHeight - options.height;
             } else if (params.bottom > 0) {
@@ -91,7 +91,7 @@
             }
             params.right = right + mx - e.pageX;
             params.width = options.width;
-            if ((options.width + params.right) <= (options.closeWidth - options.width + options.minSize)) {
+            if ((options.width + params.right) <= options.minSize) {
               f_close = true;
               params.right = options.closeWidth - options.width;
             } else if (params.right > 0) {
@@ -107,7 +107,7 @@
             }
             params.left = left - mx + e.pageX;
             params.width = options.width;
-            if ((options.width + params.left) <= (options.closeWidth - options.width + options.minSize)) {
+            if ((options.width + params.left) <= options.minSize) {
               f_close = true;
               params.left = options.closeWidth - options.width;
             } else if (params.left > 0) {
