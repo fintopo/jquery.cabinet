@@ -152,6 +152,9 @@ jquery.cabinet is released under the MIT license.
 Change Log
 ==========
 
+- Ver.1.2.0 (2015/01/14)
+ - Append the type `number` to option `open`.(#4)
+ - Bug fixed that the knob is hidden in drag when the option `mode` to `position`.(#8)
 - Ver.1.1.0 (2015/01/09)
  - Default `position` of the option `mode`.
  - Bug fixed that does not add `classDrawerOpen` by method `open`.
