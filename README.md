@@ -30,11 +30,12 @@ This option refers to the method of slide.
 
 ## open
 
-`boolean`
+`boolean` or `number`
 
 default: `false`
 
-If true, show the cabinet.
+If true, open the first drawer of cabinet.
+If number, open the specified drawer.
 
 ## minSize
 

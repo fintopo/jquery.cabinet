@@ -1,5 +1,5 @@
 /*
- * jquery.cabinet Ver.1.1.0(2015/01/09)
+ * jquery.cabinet Ver.1.1.0 (2015/01/09)
  * 
  * by fintopo(http://www.fintopo.jp/)
  */
@@ -231,10 +231,10 @@
           //
           methods.appendDrawers.call(_this, options.drawers);
           //
-          if (options.open) {
-            methods.open.apply(_this);
+          if (options.open || (options.open === 0)) {
+            methods.open.call(_this, options);
           } else {
-            methods.close.apply(_this);
+            methods.close.call(_this, options);
           }
         }
       }); // end each
@@ -307,7 +307,8 @@
           .removeClass(options.classExpand);
       //
       if ($this.find('.cabinet-drawer.'+options.classDrawerOpen).length == 0) { // クリックでオープンした時は、既にクラスが付いているので変更しない。
-        switch_drawer($this, $this.find('.cabinet-knob:first'), options);
+        var index = (toString.call(options.open) == '[object Number]') ? options.open : 0;
+        switch_drawer($this, $this.find('.cabinet-knob:eq('+index+')'), options);
       }
       //
       if (typeof options.onOpen == 'function') {
@@ -406,8 +407,8 @@
         add_knob_events.call(_this, $knob);
       });
       //
-      if (options.open) {
-        methods.open.apply(_this);
+      if (options.open || (options.open === 0)) {
+        methods.open.call(_this, options);
       }
     }
     ,removeDrawers: function(){
