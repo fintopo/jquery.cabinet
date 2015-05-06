@@ -1,5 +1,5 @@
 /*
- * jquery.cabinet Ver.1.2.0 (2015/01/14)
+ * jquery.cabinet Ver.1.3.0 (2015-05-06)
  * https://github.com/fintopo/jquery.cabinet
  * 
  * by fintopo(http://www.fintopo.jp/)
@@ -15,7 +15,21 @@
     $cabinet.find('.cabinet-drawer')
         .removeClass(options.classDrawerOpen)
         .addClass(options.classDrawerClose);
-    $cabinet.find('.cabinet-box').hide();
+    //
+    var mode_hide = true;
+    switch(options.position) {
+    case 'top':
+    case 'bottom':
+      mode_hide = (options.closeHeight == 0);
+      break;
+    case 'right':
+    case 'left':
+      mode_hide = (options.closeWidth == 0);
+      break;
+    }
+    if (mode_hide) {
+      $cabinet.find('.cabinet-box').hide();
+    }
   };
   // 引き出しの切り替え
   var switch_drawer = function($cabinet, $knob, options){
