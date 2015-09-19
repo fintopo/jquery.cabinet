@@ -93,6 +93,10 @@ Methods
 
 ## reset
 
+## countDrawers
+
+This method returns the number of drawers.
+
 ## appendDrawers
 
 This method appends drawers.
@@ -152,6 +156,8 @@ jquery.cabinet is released under the MIT license.
 Change Log
 ==========
 
+- Ver.1.3.0 (2015/05/06)
+ - Bug fixed #17.
 - Ver.1.2.0 (2015/01/14)
  - Append the type `number` to option `open`.(#4)
  - Bug fixed that the knob is hidden in drag when the option `mode` to `position`.(#8)

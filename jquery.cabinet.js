@@ -393,6 +393,9 @@
       //
       return $.extend(data.options, options);
     }
+    ,countDrawers: function(options){
+      return $(this).find('.cabinet-drawer').length;
+    }
     ,appendDrawers: function(options){
       var _this = this;
       var $this = $(this);
