@@ -428,6 +428,8 @@
       if (options.open || (options.open === 0)) {
         methods.open.call(_this, options);
       }
+      //
+      return methods.countDrawers.call(_this);
     }
     ,removeDrawers: function(){
       var $this = $(this);
@@ -442,6 +444,8 @@
       if (!data) return;
       //
       $this.find('.cabinet-drawer:eq('+index+')').remove();
+      //
+      return methods.countDrawers.call(_this);
     }
     ,getDrawer: function(index){
       var $this = $(this);
