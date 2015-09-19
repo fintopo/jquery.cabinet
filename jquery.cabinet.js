@@ -445,7 +445,14 @@
       //
       $this.find('.cabinet-drawer:eq('+index+')').remove();
       //
-      return methods.countDrawers.call(this);
+      var count = methods.countDrawers.call(this);
+      if (count == 0) {
+        methods.close.call(this);
+      } else {
+        switch_drawer($this, $this.find('.cabinet-knob:eq('+(count-1)+')'), data.options);
+      }
+      //
+      return count;
     }
     ,getDrawer: function(index){
       var $this = $(this);
