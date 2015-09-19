@@ -445,7 +445,7 @@
       //
       $this.find('.cabinet-drawer:eq('+index+')').remove();
       //
-      return methods.countDrawers.call(_this);
+      return methods.countDrawers.call(this);
     }
     ,getDrawer: function(index){
       var $this = $(this);
