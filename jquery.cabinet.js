@@ -426,10 +426,13 @@
       });
       //
       if (options.open || (options.open === 0)) {
-        methods.open.call(_this, options);
+        methods.open.call(_this, data.options);
       }
+      // 最後に追加した引き出しに切り替える
+      var count = methods.countDrawers.call(_this);
+      switch_drawer($this, $this.find('.cabinet-knob:eq('+(count-1)+')'), data.options);
       //
-      return methods.countDrawers.call(_this);
+      return count;
     }
     ,removeDrawers: function(){
       var $this = $(this);
