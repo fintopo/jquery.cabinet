@@ -1,5 +1,5 @@
 /*
- * jquery.cabinet Ver.1.3.0 (2015-05-06)
+ * jquery.cabinet Ver.1.4.0 (2015-09-20)
  * https://github.com/fintopo/jquery.cabinet
  * 
  * by fintopo(http://www.fintopo.jp/)

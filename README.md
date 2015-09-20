@@ -101,10 +101,10 @@ This method returns the number of drawers.
 
 This method appends drawers.
 
-If option `remove' is true, remove all existing drawers.
-If option `remove' is number, remove the drawer of number.
+If option `remove` is true, remove all existing drawers.
+If option `remove` is number, remove the drawer of number.
 
-If option `open' is true, open the cabinet.
+If option `open` is true, open the cabinet.
 
 ```
 $('.cabinet').cabinet('appendDrawers', {
@@ -156,6 +156,8 @@ jquery.cabinet is released under the MIT license.
 Change Log
 ==========
 
+- Ver.1.4.0 (2015-09-20)
+ - Bug fixed #6, #14, #15, #16, #18.
 - Ver.1.3.0 (2015/05/06)
  - Bug fixed #17.
 - Ver.1.2.0 (2015/01/14)
