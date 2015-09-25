@@ -156,8 +156,11 @@ jquery.cabinet is released under the MIT license.
 Change Log
 ==========
 
+- Ver.1.5.0 (2015-09-25)
+ - Bug fixed #19.
 - Ver.1.4.0 (2015-09-20)
- - Bug fixed #6, #14, #15, #16, #18.
+ - Append function #6, #18.
+ - Bug fixed #14, #15, #16.
 - Ver.1.3.0 (2015/05/06)
  - Bug fixed #17.
 - Ver.1.2.0 (2015/01/14)
