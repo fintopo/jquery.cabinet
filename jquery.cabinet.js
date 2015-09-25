@@ -380,7 +380,9 @@
           .removeClass(options.classOpen)
           .addClass(options.classClose)
           .removeClass(options.classExpand);
-      close_drawers($this, options);
+      if (!options.closeHeight && !options.closeWidth) {
+        close_drawers($this, options);
+      }
       //
       if (typeof options.onClose == 'function') {
         options.onClose.call(this);
