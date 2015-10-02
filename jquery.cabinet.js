@@ -321,12 +321,15 @@
           .addClass(options.classOpen)
           .removeClass(options.classExpand);
       // 引き出しの切り替え
-      var index = (toString.call(options.open) == '[object Number]') ? options.open : 0;
-      switch_drawer($this, $this.find('.cabinet-knob:eq('+index+')'), options);
+      if (toString.call(options.open) == '[object Number]') {
+        switch_drawer($this, $this.find('.cabinet-knob:eq('+options.open+')'), options);
+      }
       //
       if (typeof options.onOpen == 'function') {
         options.onOpen.call(this);
       }
+      //
+      options.open = null;
     },
     close: function(options){
       var $this = $(this);
