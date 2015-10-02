@@ -320,11 +320,9 @@
           .removeClass(options.classClose)
           .addClass(options.classOpen)
           .removeClass(options.classExpand);
-      //
-      if ($this.find('.cabinet-drawer.'+options.classDrawerOpen).length == 0) { // クリックでオープンした時は、既にクラスが付いているので変更しない。
-        var index = (toString.call(options.open) == '[object Number]') ? options.open : 0;
-        switch_drawer($this, $this.find('.cabinet-knob:eq('+index+')'), options);
-      }
+      // 引き出しの切り替え
+      var index = (toString.call(options.open) == '[object Number]') ? options.open : 0;
+      switch_drawer($this, $this.find('.cabinet-knob:eq('+index+')'), options);
       //
       if (typeof options.onOpen == 'function') {
         options.onOpen.call(this);
